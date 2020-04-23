@@ -1,0 +1,334 @@
+swagger: '2.0'
+info:
+  title: 基于服务的软件架构与云计算大作业API接口
+  version: 1.0.0
+  description: '枪在手！跟我走！杀四郎！抢碉楼！'
+host: 'localhost:8998'
+basePath: /v1
+schemes:
+  - http
+tags:
+  - name: user
+    description: 【用户】相关接口
+  - name: ticket
+    description: 【票】相关接口
+  - name: payment
+    description: 【用户账户】相关接口
+paths:
+  /user:
+    get:
+      tags:
+        - user
+      summary: 获取用户信息
+      operationId: user_get
+      parameters: 
+        - in: query
+          name: user_id
+          type: integer
+          description: 用户ID
+          required: True
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 返回用户信息json数据
+          schema:
+            type: object
+            required:
+              - User
+            properties:
+              User:
+                $ref: '#/definitions/User'
+    post:
+      tags:
+        - user
+      summary: 新建用户信息
+      operationId: create_usere
+      parameters: 
+        - in: body
+          name: user
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 返回是否创建成功和创建的用户信息
+          schema:
+            type: object
+            required:
+              - User
+              - result
+            properties:
+              result:
+                type: boolean
+              User:
+                $ref: '#/definitions/User'
+    put:
+      tags:
+        - user
+      summary: 修改用户信息
+      operationId: update_usere
+      parameters: 
+        - in: body
+          name: user
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 返回是否修改成功和修改之后的用户信息
+          schema:
+            type: object
+            required:
+              - User
+              - result
+            properties:
+              result:
+                type: boolean
+              User:
+                $ref: '#/definitions/User'
+    delete:
+      tags:
+        - user
+      summary: 删除用户信息
+      operationId: delete_usere
+      parameters: 
+        - in: query
+          name: user_id
+          type: integer
+          description: 用户ID
+          required: True
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 返回是否删除成功和删除的用户信息
+          schema:
+            type: object
+            required:
+              - User
+              - result
+            properties:
+              result:
+                type: boolean
+              User:
+                $ref: '#/definitions/User'
+                
+  /ticket:
+    get:
+      tags:
+        - ticket
+      summary: 获取票务信息
+      operationId: ticket_get
+      parameters: 
+        - in: query
+          name: ticket_id
+          type: integer
+          description: 票ID
+          required: True
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 返回票json数据
+          schema:
+            type: object
+            required:
+              - User
+            properties:
+              User:
+                $ref: '#/definitions/Ticket'
+    post:
+      tags:
+        - ticket
+      summary: 新建票务信息
+      operationId: create_ticket
+      parameters: 
+        - in: body
+          name: user
+          required: true
+          schema:
+            $ref: '#/definitions/Ticket'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 返回是否创建成功和创建的票信息
+          schema:
+            type: object
+            required:
+              - Ticket
+              - result
+            properties:
+              result:
+                type: boolean
+              Ticket:
+                $ref: '#/definitions/Ticket'
+    put:
+      tags:
+        - ticket
+      summary: 修改票信息，如修改票状态等
+      operationId: update_ticket
+      parameters: 
+        - in: body
+          name: ticket
+          required: true
+          schema:
+            $ref: '#/definitions/Ticket'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 返回是否修改成功和修改之后的票信息
+          schema:
+            type: object
+            required:
+              - Ticket
+              - result
+            properties:
+              result:
+                type: boolean
+              Ticket:
+                $ref: '#/definitions/Ticket'
+    delete:
+      tags:
+        - user
+      summary: 删除用户信息
+      operationId: delete_ticket
+      parameters: 
+        - in: query
+          name: ticket_id
+          type: integer
+          description: 票ID
+          required: True
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 返回是否删除成功和删除的票信息
+          schema:
+            type: object
+            required:
+              - Ticket
+              - result
+            properties:
+              result:
+                type: boolean
+              User:
+                $ref: '#/definitions/Ticket'
+  
+  /payment:
+    get:
+      tags:
+        - payment
+      summary: 获取账户信息
+      operationId: payment_get
+      parameters: 
+        - in: query
+          name: user_id
+          type: integer
+          description: 用户ID
+          required: True
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 返回用户账户json数据
+          schema:
+            type: object
+            required:
+              - Payment
+            properties:
+              User:
+                $ref: '#/definitions/Payment'
+    put:
+      tags:
+        - payment
+      summary: 修改账户信息，修改余额
+      operationId: update_payment
+      parameters: 
+        - in: body
+          name: payment
+          required: true
+          schema:
+            $ref: '#/definitions/Payment'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: 返回是否修改成功和修改之后的票信息
+          schema:
+            type: object
+            required:
+              - Payment
+              - result
+            properties:
+              result:
+                type: boolean
+              Ticket:
+                $ref: '#/definitions/Payment'
+
+
+definitions:
+  User:
+    type: object
+    description: 用户信息
+    properties:
+          user_id:
+            type: integer
+            description: 用户ID
+            example: 1
+          user_name:
+            type: string
+            description: 用户名
+            example: 啦啦啦
+          status:
+            type: integer
+            description: 用户状态
+            enum:
+              - -1 删除
+              - 0 正常
+            example: 0
+  
+  Ticket:
+    type: object
+    description: 票信息
+    properties:
+          ticket_id:
+            type: integer
+            description: 票ID
+            example: 1
+          fare:
+            type: integer
+            description: 票价
+            example: 10
+          user_id:
+            type: integer
+            description: 购买或者订票的用户ID
+          status:
+            type: integer
+            description: 票状态
+            enum:
+              - -1 删除
+              - 0 正常
+              - 1 待付款
+              - 2 已付款
+            example: 0
+  
+  Payment:
+    type: object
+    description: 用户金额信息
+    properties:
+          user_id:
+            type: integer
+            description: 用户ID
+            example: 1
+          balance:
+            type: integer
+            description: 账户余额
+            example: 10
+      
