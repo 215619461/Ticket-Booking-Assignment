@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders", "Orders\Orders.csproj", "{EBCB6529-7C43-4657-8294-EF23E27D53DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orders", "Orders\Orders.csproj", "{EBCB6529-7C43-4657-8294-EF23E27D53DE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payment", "Payment\Payment\Payment.csproj", "{936E31F3-8090-4270-B7D8-E402C1A66A21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User", "User\User.csproj", "{BFC45536-6392-4322-A426-90B46307A257}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User", "User\User.csproj", "{BFC45536-6392-4322-A426-90B46307A257}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GateWay", "GateWay\GateWay.csproj", "{08981C3D-D829-4620-9F23-BDDDDB97D5ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GateWay", "GateWay\GateWay.csproj", "{08981C3D-D829-4620-9F23-BDDDDB97D5ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscriber", "Subscriber\Subscriber.csproj", "{7CE231F9-5EF2-4C54-8D50-47752029E43C}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3332CA02-86E4-4F64-AA22-257D003BD916}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{08981C3D-D829-4620-9F23-BDDDDB97D5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08981C3D-D829-4620-9F23-BDDDDB97D5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08981C3D-D829-4620-9F23-BDDDDB97D5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CE231F9-5EF2-4C54-8D50-47752029E43C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE231F9-5EF2-4C54-8D50-47752029E43C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE231F9-5EF2-4C54-8D50-47752029E43C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CE231F9-5EF2-4C54-8D50-47752029E43C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3332CA02-86E4-4F64-AA22-257D003BD916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3332CA02-86E4-4F64-AA22-257D003BD916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3332CA02-86E4-4F64-AA22-257D003BD916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3332CA02-86E4-4F64-AA22-257D003BD916}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -139,8 +139,9 @@ F:\workVS\TicketBooking\User\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.W
 F:\workVS\TicketBooking\User\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 F:\workVS\TicketBooking\User\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 F:\workVS\TicketBooking\User\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-F:\workVS\TicketBooking\User\obj\Debug\netcoreapp3.1\User.csproj.CoreCompileInputs.cache
-F:\workVS\TicketBooking\User\obj\Debug\netcoreapp3.1\User.MvcApplicationPartsAssemblyInfo.cache
 F:\workVS\TicketBooking\User\obj\Debug\netcoreapp3.1\User.dll
 F:\workVS\TicketBooking\User\obj\Debug\netcoreapp3.1\User.pdb
 F:\workVS\TicketBooking\User\obj\Debug\netcoreapp3.1\User.genruntimeconfig.cache
+F:\workVS\TicketBooking\User\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
+F:\workVS\TicketBooking\User\obj\Debug\netcoreapp3.1\User.csproj.CoreCompileInputs.cache
+F:\workVS\TicketBooking\User\obj\Debug\netcoreapp3.1\User.MvcApplicationPartsAssemblyInfo.cache

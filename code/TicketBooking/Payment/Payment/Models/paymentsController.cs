@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RabbitMQ.Client;
+using System.Text;
 
 namespace Payment.Models
 {
@@ -117,7 +119,35 @@ namespace Payment.Models
             // _context.Entry(payment).State = EntityState.Modified;
             var entity = _context.Payments.Find(payment.UserID);
             _context.Payments.Attach(entity);
-            if(entity.Balance < payment.Balance)
+
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "locationSampleQueue",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                string message;
+                if (entity.Balance < payment.Balance)
+                {
+                    message = "fail to pay the order of user " + id;
+                }
+                else
+                {
+                    message = "successfully pay the order of user " + id;
+                }
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "locationSampleQueue",
+                                     basicProperties: null,
+                                     body: body);
+            }
+
+            if (entity.Balance < payment.Balance)
             {
                 return Content("sorry, you do not have enough money...");
             }
@@ -159,6 +189,25 @@ namespace Payment.Models
             try
             {
                 await _context.SaveChangesAsync();
+
+                var factory = new ConnectionFactory() { HostName = "localhost" };
+                using (var connection = factory.CreateConnection())
+                using (var channel = connection.CreateModel())
+                {
+                    channel.QueueDeclare(queue: "locationSampleQueue",
+                                         durable: false,
+                                         exclusive: false,
+                                         autoDelete: false,
+                                         arguments: null);
+
+                    string message = "successfully cancel the order of user " + payment.UserID;
+                    var body = Encoding.UTF8.GetBytes(message);
+
+                    channel.BasicPublish(exchange: "",
+                                         routingKey: "locationSampleQueue",
+                                         basicProperties: null,
+                                         body: body);
+                }
             }
             catch (DbUpdateConcurrencyException)
             {

@@ -28,8 +28,8 @@ namespace OcelotBasic
             })
             .ConfigureLogging((hostingContext, logging) =>
             {
-                   //add your logging
-               })
+                //add your logging
+            })
             .UseIISIntegration()
             .Configure(app =>
             {

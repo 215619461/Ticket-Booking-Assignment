@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "k3qbi95WJocsqcZhNoeCWG/Zuin9vXBs27Y5u8lXIl7pJkkcCnavMxtB6FCOpUV05aI3jCpT2yLFch1t7tLZ/A==",
+  "dgSpecHash": "snO8vz27oNTM8B20pas3UUcycrh4FBEE4Q0GgkJWkJTmGHGzZaX1tpDwwmH1uqrnfPW0L8K0WqCxdeo8YDxbpg==",
   "success": true,
   "projectFilePath": "F:\\workVS\\TicketBooking\\GateWay\\GateWay.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\tongxing\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\tongxing\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.1\\microsoft.extensions.dependencyinjection.abstractions.3.1.1.nupkg.sha512",
     "C:\\Users\\tongxing\\.nuget\\packages\\microsoft.extensions.diagnosticadapter\\3.1.1\\microsoft.extensions.diagnosticadapter.3.1.1.nupkg.sha512",
+    "C:\\Users\\tongxing\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.8\\microsoft.visualstudio.azure.containers.tools.targets.1.10.8.nupkg.sha512",
     "C:\\Users\\tongxing\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\tongxing\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\tongxing\\.nuget\\packages\\ocelot\\15.0.6\\ocelot.15.0.6.nupkg.sha512",

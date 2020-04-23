@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "GateWay/1.0.0": {
         "dependencies": {
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.10.8",
           "Ocelot": "15.0.6",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -399,6 +400,7 @@
           "lib/netcoreapp2.0/Microsoft.Extensions.DiagnosticAdapter.dll": {}
         }
       },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.10.8": {},
       "Newtonsoft.Json/12.0.2": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -2189,6 +2191,13 @@
       "sha512": "sha512-c3lek5e9Il7JdO+6au89X4ApF/93lyAMhTWBYCxjT38LF/SuYIgq82HQpSvM3sGOk08PUsGvY75s9WACnXHw5A==",
       "path": "microsoft.extensions.diagnosticadapter/3.1.1",
       "hashPath": "microsoft.extensions.diagnosticadapter.3.1.1.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.10.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LXlwvlXetgFg2sqsLCzi+Kd+nV78VrRzy9u6nKU05yx9tcsF9BcLqL/+vtj01Z7RPhp0U8D4Px/bHbyMR9Ddjg==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.10.8",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.10.8.nupkg.sha512"
     },
     "Newtonsoft.Json/12.0.2": {
       "type": "package",

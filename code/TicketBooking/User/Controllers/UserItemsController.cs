@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RabbitMQ.Client;
+using System.Text;
 using User.Models;
 
 namespace User.Controllers
@@ -24,7 +26,28 @@ namespace User.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserItem>>> GetUserItems()
         {
-            return await _context.UserItems.ToListAsync();
+            var result = await _context.UserItems.ToListAsync();
+
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "locationSampleQueue",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                string message = "successfully get " + result.Count + " users";
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "locationSampleQueue",
+                                     basicProperties: null,
+                                     body: body);
+            }
+
+            return result;
         }
 
         // GET: api/UserItems/5
@@ -32,6 +55,33 @@ namespace User.Controllers
         public async Task<ActionResult<UserItem>> GetUserItem(long id)
         {
             var userItem = await _context.UserItems.FindAsync(id);
+
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "locationSampleQueue",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                string message;
+                if (userItem == null)
+                {
+                    message = "fail to get the user: " + id;
+                } 
+                else
+                {
+                    message = "successfully get the user: " + id;
+                }
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "locationSampleQueue",
+                                     basicProperties: null,
+                                     body: body);
+            }
 
             if (userItem == null)
             {
@@ -57,6 +107,25 @@ namespace User.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+
+                var factory = new ConnectionFactory() { HostName = "localhost" };
+                using (var connection = factory.CreateConnection())
+                using (var channel = connection.CreateModel())
+                {
+                    channel.QueueDeclare(queue: "locationSampleQueue",
+                                         durable: false,
+                                         exclusive: false,
+                                         autoDelete: false,
+                                         arguments: null);
+
+                    string message = "successfully modify the user: " + userItem.UserName;
+                    var body = Encoding.UTF8.GetBytes(message);
+
+                    channel.BasicPublish(exchange: "",
+                                         routingKey: "locationSampleQueue",
+                                         basicProperties: null,
+                                         body: body);
+                }
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -81,6 +150,25 @@ namespace User.Controllers
         {
             _context.UserItems.Add(userItem);
             await _context.SaveChangesAsync();
+
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "locationSampleQueue",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                string message = "successfully create user " + userItem.UserName;
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "locationSampleQueue",
+                                     basicProperties: null,
+                                     body: body);
+            }
 
             // return CreatedAtAction("GetUserItem", new { id = userItem.Id }, userItem);.
             return CreatedAtAction(nameof(GetUserItem), new { id = userItem.UserId }, userItem);
@@ -124,6 +212,25 @@ namespace User.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+
+                var factory = new ConnectionFactory() { HostName = "localhost" };
+                using (var connection = factory.CreateConnection())
+                using (var channel = connection.CreateModel())
+                {
+                    channel.QueueDeclare(queue: "locationSampleQueue",
+                                         durable: false,
+                                         exclusive: false,
+                                         autoDelete: false,
+                                         arguments: null);
+
+                    string message = "successfully delete the user: " + userItem.UserId;
+                    var body = Encoding.UTF8.GetBytes(message);
+
+                    channel.BasicPublish(exchange: "",
+                                         routingKey: "locationSampleQueue",
+                                         basicProperties: null,
+                                         body: body);
+                }
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -152,6 +259,26 @@ namespace User.Controllers
                     result.Remove(result[i]);
                 }
             }
+
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "locationSampleQueue",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                string message = "successfully get " + result.Count + " users";
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "locationSampleQueue",
+                                     basicProperties: null,
+                                     body: body);
+            }
+
             return result;
         }
 
@@ -160,6 +287,33 @@ namespace User.Controllers
         public async Task<ActionResult<UserItem>> GetAUser(long id)
         {
             var userItem = await _context.UserItems.FindAsync(id);
+
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "locationSampleQueue",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                string message;
+                if (userItem == null || userItem.Status == -1)
+                {
+                    message = "fail to get the user: " + id;
+                }
+                else
+                {
+                    message = "successfully get the user: " + id;
+                }
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "locationSampleQueue",
+                                     basicProperties: null,
+                                     body: body);
+            }
 
             if (userItem == null || userItem.Status == -1)
             {

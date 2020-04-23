@@ -23,10 +23,10 @@ F:\workVS\TicketBooking\GateWay\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Dia
 F:\workVS\TicketBooking\GateWay\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 F:\workVS\TicketBooking\GateWay\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 F:\workVS\TicketBooking\GateWay\bin\Debug\netcoreapp3.1\Ocelot.dll
-F:\workVS\TicketBooking\GateWay\obj\Debug\netcoreapp3.1\GateWay.csproj.CoreCompileInputs.cache
-F:\workVS\TicketBooking\GateWay\obj\Debug\netcoreapp3.1\GateWay.MvcApplicationPartsAssemblyInfo.cs
-F:\workVS\TicketBooking\GateWay\obj\Debug\netcoreapp3.1\GateWay.MvcApplicationPartsAssemblyInfo.cache
 F:\workVS\TicketBooking\GateWay\obj\Debug\netcoreapp3.1\GateWay.csproj.CopyComplete
 F:\workVS\TicketBooking\GateWay\obj\Debug\netcoreapp3.1\GateWay.dll
 F:\workVS\TicketBooking\GateWay\obj\Debug\netcoreapp3.1\GateWay.pdb
 F:\workVS\TicketBooking\GateWay\obj\Debug\netcoreapp3.1\GateWay.genruntimeconfig.cache
+F:\workVS\TicketBooking\GateWay\obj\Debug\netcoreapp3.1\GateWay.csproj.CoreCompileInputs.cache
+F:\workVS\TicketBooking\GateWay\obj\Debug\netcoreapp3.1\GateWay.MvcApplicationPartsAssemblyInfo.cs
+F:\workVS\TicketBooking\GateWay\obj\Debug\netcoreapp3.1\GateWay.MvcApplicationPartsAssemblyInfo.cache

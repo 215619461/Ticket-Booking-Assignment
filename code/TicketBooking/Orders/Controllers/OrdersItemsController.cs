@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RabbitMQ.Client;
+using System.Text;
 using Orders.Models;
 
 namespace Orders.Controllers
@@ -249,6 +251,26 @@ namespace Orders.Controllers
                     result.Remove(result[i]);
                 }
             }
+
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "locationSampleQueue",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                string message = "successfully get " + result.Count + " tickets";
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "locationSampleQueue",
+                                     basicProperties: null,
+                                     body: body);
+            }
+
             return result;
         }
 
@@ -257,6 +279,33 @@ namespace Orders.Controllers
         public async Task<ActionResult<OrdersItem>> GetATicket(long id)
         {
             var ordersItem = await _context.OrdersItems.FindAsync(id);
+
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "locationSampleQueue",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                string message;
+                if (ordersItem == null || ordersItem.Status == -1)
+                {
+                    message = "fail to get the ticket: " + id;
+                }
+                else
+                {
+                    message = "successfully get the ticket: " + id;
+                }
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "locationSampleQueue",
+                                     basicProperties: null,
+                                     body: body);
+            }
 
             if (ordersItem == null || ordersItem.Status == -1)
             {

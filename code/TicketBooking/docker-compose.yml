@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  gateway:
+    image: ${DOCKER_REGISTRY-}gateway
+    build:
+      context: .
+      dockerfile: GateWay/Dockerfile
+
+  orders:
+    image: ${DOCKER_REGISTRY-}orders
+    build:
+      context: .
+      dockerfile: Orders/Dockerfile
+
+
+  payment:
+    image: ${DOCKER_REGISTRY-}payment
+    build:
+      context: .
+      dockerfile: Payment/Payment/Dockerfile
+
+
+  user:
+    image: ${DOCKER_REGISTRY-}user
+    build:
+      context: .
+      dockerfile: User/Dockerfile
+

@@ -1,0 +1,16 @@
+services:
+  gateway:
+    build:
+      context: F:\workVS\TicketBooking
+      dockerfile: GateWay/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: gateway
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\tongxing\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\tongxing\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'

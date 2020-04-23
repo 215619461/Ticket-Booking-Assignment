@@ -279,8 +279,6 @@ F:\workVS\TicketBooking\Payment\Payment\bin\Debug\netcoreapp3.1\runtimes\unix\li
 F:\workVS\TicketBooking\Payment\Payment\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 F:\workVS\TicketBooking\Payment\Payment\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 F:\workVS\TicketBooking\Payment\Payment\obj\Debug\netcoreapp3.1\Payment.csprojAssemblyReference.cache
-F:\workVS\TicketBooking\Payment\Payment\obj\Debug\netcoreapp3.1\Payment.csproj.CoreCompileInputs.cache
-F:\workVS\TicketBooking\Payment\Payment\obj\Debug\netcoreapp3.1\Payment.MvcApplicationPartsAssemblyInfo.cache
 F:\workVS\TicketBooking\Payment\Payment\obj\Debug\netcoreapp3.1\Payment.AssemblyInfoInputs.cache
 F:\workVS\TicketBooking\Payment\Payment\obj\Debug\netcoreapp3.1\Payment.AssemblyInfo.cs
 F:\workVS\TicketBooking\Payment\Payment\obj\Debug\netcoreapp3.1\Payment.RazorTargetAssemblyInfo.cache
@@ -290,3 +288,6 @@ F:\workVS\TicketBooking\Payment\Payment\obj\Debug\netcoreapp3.1\staticwebassets\
 F:\workVS\TicketBooking\Payment\Payment\obj\Debug\netcoreapp3.1\Payment.dll
 F:\workVS\TicketBooking\Payment\Payment\obj\Debug\netcoreapp3.1\Payment.pdb
 F:\workVS\TicketBooking\Payment\Payment\obj\Debug\netcoreapp3.1\Payment.genruntimeconfig.cache
+F:\workVS\TicketBooking\Payment\Payment\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
+F:\workVS\TicketBooking\Payment\Payment\obj\Debug\netcoreapp3.1\Payment.csproj.CoreCompileInputs.cache
+F:\workVS\TicketBooking\Payment\Payment\obj\Debug\netcoreapp3.1\Payment.MvcApplicationPartsAssemblyInfo.cache
