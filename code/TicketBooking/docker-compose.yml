@@ -6,12 +6,16 @@ services:
     build:
       context: .
       dockerfile: GateWay/Dockerfile
+      ports:
+        - "5001:80"
 
   orders:
     image: ${DOCKER_REGISTRY-}orders
     build:
       context: .
       dockerfile: Orders/Dockerfile
+      ports:
+        - "6001:80"
 
 
   payment:
@@ -19,6 +23,8 @@ services:
     build:
       context: .
       dockerfile: Payment/Payment/Dockerfile
+      ports:
+        - "7001:80"
 
 
   user:
@@ -26,4 +32,6 @@ services:
     build:
       context: .
       dockerfile: User/Dockerfile
+      ports:
+        - "8001:80"
 
